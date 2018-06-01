@@ -20,6 +20,8 @@ Enemy.prototype.update = function(dt) {
     // all computers.
     this.x += 100 * this.speed * dt;
 
+    // Check for collisions
+    // Keep moving enemies from left to right
     if (player.x < this.x + 70 && player.x + 60 > this.x && player.y < this.y + 50 && 70 + player.y > this.y) {
       player.x = 205;
       player.y = 380;
@@ -44,7 +46,9 @@ var Player = function(x, y) {
 
 Player.prototype.update = function() {
   if (this.y === -20 ) {
+    // Add new enemy
     allEnemies.push(new Enemy(5, 140, 2));
+    // Reset player to starting position
     this.x = 205;
     this.y = 380;
   }
