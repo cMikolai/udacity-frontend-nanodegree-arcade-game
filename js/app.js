@@ -20,6 +20,10 @@ Enemy.prototype.update = function(dt) {
     // all computers.
     this.x += 100 * this.speed * dt;
 
+    if (player.x < this.x + 70 && player.x + 60 > this.x && player.y < this.y + 50 && 70 + player.y > this.y) {
+      player.x = 205;
+      player.y = 380;
+    }
 };
 
 // Draw the enemy on the screen, required method for game
