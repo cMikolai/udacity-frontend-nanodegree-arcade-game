@@ -23,6 +23,8 @@ Enemy.prototype.update = function(dt) {
     if (player.x < this.x + 70 && player.x + 60 > this.x && player.y < this.y + 50 && 70 + player.y > this.y) {
       player.x = 205;
       player.y = 380;
+    } else if (this.x > 390) {
+      this.x = -500;
     }
 };
 
