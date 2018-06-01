@@ -43,7 +43,11 @@ var Player = function(x, y) {
 };
 
 Player.prototype.update = function() {
-
+  if (this.y === -20 ) {
+    allEnemies.push(new Enemy(5, 140, 2));
+    this.x = 205;
+    this.y = 380;
+  }
 }
 
 Player.prototype.render = function() {
