@@ -44,13 +44,17 @@ var Player = function(x, y) {
   this.sprite = 'images/char-horn-girl.png';
 };
 
-Player.prototype.update = function() {
+// End of Game
+Player.prototype.update = function(replay) {
   if (this.y === -20 ) {
     // Add new enemy
-    allEnemies.push(new Enemy(5, 140, 2));
+    // allEnemies.push(new Enemy(5, 140, 2));
+
     // Reset player to starting position
     this.x = 205;
     this.y = 380;
+    // Show modal at end of game
+    document.querySelector('#modal').classList.remove('hide');
   }
 }
 
@@ -59,6 +63,7 @@ Player.prototype.render = function() {
 };
 
 Player.prototype.handleInput = function(move) {
+  hideModal(move);
   if (move === "left" && this.x > 5) {
     this.x = this.x - 100;
   } else if (move === "up" && this.y > -20) {
@@ -70,6 +75,11 @@ Player.prototype.handleInput = function(move) {
   }
 };
 
+function hideModal(move) {
+  if (move === "left" ||  move === "up" || move === "right" || move === "down") {
+    document.querySelector('#modal').classList.add('hide');
+  }
+}
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
