@@ -62,6 +62,7 @@ Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+// Moves player around
 Player.prototype.handleInput = function(move) {
   hideModal(move);
   if (move === "left" && this.x > 5) {
@@ -75,6 +76,7 @@ Player.prototype.handleInput = function(move) {
   }
 };
 
+// Hides modal that shows up at the end of the game
 function hideModal(move) {
   if (move === "left" ||  move === "up" || move === "right" || move === "down") {
     document.querySelector('#modal').classList.add('hide');
